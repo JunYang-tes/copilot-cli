@@ -1,6 +1,6 @@
 {
   "name": "copilot-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "copilot command line interface",
   "main": "lib/index.js",
   "author": "Qianba <ouyangqianba@gmail.com>",
