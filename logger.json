@@ -1,0 +1,26 @@
+{
+    "level": "debug",
+    "error": {
+        "path": "./log/error.log",
+        "fileNamePattern": "-dd"
+    },
+    "warn": {
+        "path": "./log/warn.log",
+        "fileNamePattern": "-dd"
+    },
+    "info": {
+        "path": "./log/info.log",
+        "fileNamePattern": "-dd"
+    },
+    "debug": {
+        "path": "./log/debug.log",
+        "fileNamePattern": "-dd"
+    },
+    "options": {
+        "console": {
+            "exclude": [
+                ".*"
+            ]
+        }
+    }
+}
