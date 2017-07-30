@@ -144,9 +144,9 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-b-logger@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/b-logger/-/b-logger-0.0.13.tgz#5e2b5be6227903d288e58d722ad5ca6913d12ef9"
+b-logger@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/b-logger/-/b-logger-0.0.14.tgz#8824cd1bfbd8ffbc5b3e07cb60d0dca4df8f1c78"
   dependencies:
     ansi-styles "^3.1.0"
     lib "^3.0.1"
@@ -947,42 +947,16 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
-copilot-core@^0.0.29:
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/copilot-core/-/copilot-core-0.0.29.tgz#0e0c8eb5518e2f5976ca1d23c33c9e12a1086736"
+copilot-core@^0.0.32:
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/copilot-core/-/copilot-core-0.0.32.tgz#8764c23c42f3f36afc148953ef133bbcdc2f97e7"
   dependencies:
     "@types/socket.io" "^1.4.29"
     "@types/sqlite3" "^3.1.0"
     array-asyncify "^0.0.7"
-    b-logger "^0.0.13"
+    b-logger "^0.0.14"
     cli-argparser "^0.0.12"
     clipboardy "^1.1.4"
-    debug "^2.6.8"
-    deepmerge "^1.5.0"
-    fuse.js "^3.0.5"
-    ini "^1.3.4"
-    js-yaml "^3.8.4"
-    lru-cache "^4.1.1"
-    mkdirp "^0.5.1"
-    node-fetch "^1.7.1"
-    scalc "^2.0.1"
-    socket.io "^2.0.3"
-    sqlite3 "^3.1.8"
-    tldr "^2.0.1"
-    twss "^0.1.6"
-    ws "^3.0.0"
-
-copilot-core@^0.0.30:
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/copilot-core/-/copilot-core-0.0.30.tgz#cc55a658039eb95c5219ebfa8ee9fc1d8958ca50"
-  dependencies:
-    "@types/socket.io" "^1.4.29"
-    "@types/sqlite3" "^3.1.0"
-    array-asyncify "^0.0.7"
-    b-logger "^0.0.13"
-    cli-argparser "^0.0.12"
-    clipboardy "^1.1.4"
-    copilot-core "^0.0.29"
     debug "^2.6.8"
     deepmerge "^1.5.0"
     fuse.js "^3.0.5"

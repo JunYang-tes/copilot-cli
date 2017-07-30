@@ -22,11 +22,15 @@ export default class List extends Component {
     } else if (key.name === "down" || (key.name === "j" && key.meta)) {
       //ctrl + j reports enter key on my computer
       this.selectNext()
+    } else if (key.meta && /^[1-9]$/.test(key.name)) {
+      let { page } = this.state
+      let { pageSize, onSubmit } = this.props
+      onSubmit && onSubmit(page * pageSize + key.name)
     }
   }
   selectPrevious() {
     let { selected, page } = this.state
-    let { pageSize } = this.props
+    let { pageSize, onSelectedIndexChange } = this.props
     selected -= 1
     if (selected >= 0) {
       if (selected % pageSize === pageSize - 1 && page !== 0) {
@@ -39,11 +43,12 @@ export default class List extends Component {
           selected
         })
       }
+      onSelectedIndexChange && onSelectedIndexChange(selected)
     }
   }
   selectNext() {
     let { selected, page } = this.state
-    let { pageSize } = this.props
+    let { pageSize, onSelectedIndexChange } = this.props
     selected += 1
     if (selected < this.props.items.length) {
       if (selected % pageSize === 0) {
@@ -56,14 +61,18 @@ export default class List extends Component {
           selected
         })
       }
+      onSelectedIndexChange && onSelectedIndexChange(selected)
     }
   }
   componentWillReceiveProps(nextProps, nextState) {
-    this.setState({
-      page: 0,
-      selected: 0
-    })
+    if (nextProps.items !== this.props.items && (this.state.page != 0 || this.state.selected !== 0)) {
+      this.setState({
+        page: 0,
+        selected: 0
+      })
+    }
   }
+
 
   render() {
     let { items, pageSize } = this.props

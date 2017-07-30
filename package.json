@@ -1,6 +1,6 @@
 {
   "name": "copilot-cli",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "description": "copilot command line interface",
   "main": "lib/index.js",
   "author": "Qianba <ouyangqianba@gmail.com>",
@@ -29,7 +29,7 @@
     "babel-preset-env": "^1.6.0"
   },
   "dependencies": {
-    "copilot-core": "^0.0.30",
+    "copilot-core": "^0.0.32",
     "immutability-helper": "^2.3.0",
     "ink": "^0.3.0",
     "ink-password-input": "^1.1.0",

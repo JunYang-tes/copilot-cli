@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import { h, render, Component, span } from "ink"
-import TextInput from "ink-text-input"
-import { run, handle, startUp } from "copilot-core"
+import TextInput from "./components/TextInput"
 import List from "./components/List"
 import Spinner from "ink-spinner"
+process.env.B_LOGGER_CFG = `${__dirname}/../logger.json`
+const { run, handle, startUp } = require("copilot-core")
+
 
 class App extends Component {
   state = {
@@ -23,20 +25,34 @@ class App extends Component {
         console.log("Failed to start")
         unmount()
       })
+    this.indexToRun = 0
   }
-  onType = (e) => {
-    handle(e)
-      .then(list => {
-        this.setState({
-          items: list
+  onInputChange = (e) => {
+    //bug on alt+space
+    if (e) {
+      handle(e)
+        .then(list => {
+          this.setState({
+            items: list,
+            input: e
+          })
         })
+    } else {
+      this.setState({
+        items: [],
+        input: e || ""
       })
-    this.setState({ input: e })
+    }
   }
   run(idx) {
     let { items } = this.state
     if (idx < items.length) {
       run(items[idx])
+        .then(() => {
+          this.setState({
+            input: ""
+          })
+        })
         .catch(e => { })
     }
   }
@@ -49,8 +65,8 @@ class App extends Component {
               <TextInput
                 value={this.state.input}
                 placeholder="input commands"
-                onChange={this.onType}
-                onSubmit={() => this.run(0)}
+                onChange={this.onInputChange}
+                onSubmit={() => { this.run(this.indexToRun); this.indexToRun = 0 }}
               />
             </div>
             <div>
@@ -58,6 +74,8 @@ class App extends Component {
             </div>
             <List items={this.state.items}
               pageSize={10}
+              onSubmit={(idx) => { this.run(idx); this.indexToRun = 0 }}
+              onSelectedIndexChange={(i) => this.indexToRun = i}
             />
           </div>
         }
