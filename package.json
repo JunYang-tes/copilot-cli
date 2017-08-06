@@ -1,6 +1,6 @@
 {
   "name": "copilot-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "copilot command line interface",
   "main": "lib/index.js",
   "author": "Qianba <ouyangqianba@gmail.com>",
@@ -16,6 +16,7 @@
   "scripts": {
     "build": "babel -d lib -w src",
     "buildOnce": "babel -d lib src",
+    "postinstall": "echo fix ink issue... &&  rm -rf ./node_modules/ink/node_modules/log-update",
     "start": "node lib/index.js"
   },
   "bin": "lib/index.js",
@@ -29,11 +30,12 @@
     "babel-preset-env": "^1.6.0"
   },
   "dependencies": {
-    "copilot-core": "^0.0.32",
+    "copilot-core": "^0.0.33",
     "immutability-helper": "^2.3.0",
     "ink": "^0.3.0",
     "ink-password-input": "^1.1.0",
     "ink-spinner": "^1.0.0",
-    "ink-text-input": "^1.1.0"
+    "ink-text-input": "^1.1.0",
+    "log-update": "^2.1.0"
   }
 }
