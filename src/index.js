@@ -12,6 +12,7 @@ class App extends Component {
     input: "",
     items: [],
     starting: true,
+    processing: false,
   }
   constructor(props) {
     super(props)
@@ -29,12 +30,15 @@ class App extends Component {
   }
   onInputChange = (e) => {
     //bug on alt+space
+    let timer = setTimeout(() => this.setState({ processing: true }), 500)
     if (e) {
+      this.setState({ input: e })
       handle(e)
         .then(list => {
+          clearTimeout(timer)
           this.setState({
             items: list,
-            input: e
+            processing: false,
           })
         })
     } else {
@@ -53,7 +57,8 @@ class App extends Component {
             input: ""
           })
         })
-        .catch(e => { })
+        .catch(e => {
+        })
     }
   }
   render() {
@@ -72,6 +77,7 @@ class App extends Component {
             <div>
               -------------
             </div>
+            {this.state.processing ? <div> <Spinner green /></div> : ""}
             <List items={this.state.items}
               pageSize={10}
               onSubmit={(idx) => { this.run(idx); this.indexToRun = 0 }}
